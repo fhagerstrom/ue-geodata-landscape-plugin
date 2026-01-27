@@ -36,7 +36,7 @@ def saveAsPng(data, path):
     img.save(path) # Save image to given path
 
 def geoDataToHeightmap(inputPath, outputPath):
-    print("Starting script...\n")
+    print("Starting converter script...\n")
     print("Choose input file in your file explorer.")
 
     # Load the geo data from TIFF file

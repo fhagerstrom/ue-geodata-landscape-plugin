@@ -3,7 +3,21 @@ import os
 from tkinter import Tk, filedialog
 from processGeodata import geoDataToHeightmap
 
-def runConversion():
+# Import Unreal module if in Unreal environment
+try:
+    import unreal
+    IN_UNREAL = True
+except ImportError:
+    unreal = None
+    IN_UNREAL = False
+
+def log(msg):
+    if IN_UNREAL:
+        unreal.log(msg)
+    else:
+        print(msg)
+
+def runConversionWithDialog():
     # Hide root Tk window
     root = Tk()
     root.withdraw()
@@ -34,5 +48,23 @@ def runConversion():
     print(f"Max Height: {info['maxHeight']}")
     print(f"Resolution: {info['resolution']}")
 
-if __name__ == "__main__":
-    runConversion()
+def convertGeoDataUE(inputPath, outputPath):
+    ''' Function to be called from Unreal Engine '''
+    info = geoDataToHeightmap(inputPath, outputPath)
+    
+    # Log results in Unreal
+    if IN_UNREAL:
+        unreal.log(f"Heightmap saved to: {outputPath}")
+        unreal.log("Conversion completed.")
+        unreal.log(f"Min Height: {info['minHeight']}")
+        unreal.log(f"Max Height: {info['maxHeight']}")
+        unreal.log(f"Resolution: {info['resolution']}")
+    else:
+        print(f"Heightmap saved to: {outputPath}")
+        print("Conversion completed.")
+        print(f"Min Height: {info['minHeight']}")
+        print(f"Max Height: {info['maxHeight']}")
+        print(f"Resolution: {info['resolution']}")
+
+#if __name__ == "__main__":
+#    runConversionWithDialog()
