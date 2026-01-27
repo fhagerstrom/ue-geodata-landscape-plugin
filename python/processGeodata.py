@@ -8,9 +8,11 @@ def loadTiff(path):
     imgData = np.array(img).astype(np.float32) # Store in an array as a 32-bit float
 
     # Gate large maps for performance reasons
-    if imgData.size < 5_000_000: # 
+    if imgData.size < 10_000_000:
         # Save height values from the image into a separate file for debugging
-        np.savetxt(os.path.splitext(path)[0] + "_heights.txt", imgData, fmt="%.2f")
+        # Saves in same directory as image
+        np.savetxt(os.path.splitext(path)[0] + "_heights_info.txt", imgData, fmt="%.2f")
+        print(f"Saved height info to {os.path.splitext(path)[0] + '_heights_info.txt'}")
 
     return imgData
 
@@ -42,6 +44,13 @@ def geoDataToHeightmap(inputPath, outputPath):
 
     # Normalize the data
     normalizedData, minHeight, maxHeight = normalize(geoData)
+
+    # Save the minimum and maximum height values to a text file
+    heightInfoPath = os.path.splitext(outputPath)[0] + "_MinMax_height.txt"
+    with open(heightInfoPath, "w") as f:
+        f.write(f"Min Height: {minHeight}\n")
+        f.write(f"Max Height: {maxHeight}\n")
+    print(f"Saved height info to {heightInfoPath}")
 
     # Save the normalized data as PNG
     saveAsPng(normalizedData, outputPath)

@@ -21,16 +21,17 @@ def runConversion():
     outputPath = filedialog.asksaveasfilename(title="Select output PNG file", defaultextension=".png", initialfile=os.path.basename(defaultOutput), filetypes=[("PNG files", "*.png")])
 
     if not outputPath:
-        print("No output file selected. Exiting.")
+        print("No output file specified. Exiting.")
         return
     
     # Run conversion
     info = geoDataToHeightmap(inputPath, outputPath)
 
     # Print results
-    print("Conversion completed.")
     print(f"Heightmap saved to: {outputPath}")
+    print("Conversion completed.")
     print(f"Min Height: {info['minHeight']}")
+    print(f"Max Height: {info['maxHeight']}")
     print(f"Resolution: {info['resolution']}")
 
 if __name__ == "__main__":
