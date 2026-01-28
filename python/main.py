@@ -60,11 +60,7 @@ def convertGeoDataUE(inputPath, outputPath):
         unreal.log(f"Max Height: {info['maxHeight']}")
         unreal.log(f"Resolution: {info['resolution']}")
     else:
-        print(f"Heightmap saved to: {outputPath}")
-        print("Conversion completed.")
-        print(f"Min Height: {info['minHeight']}")
-        print(f"Max Height: {info['maxHeight']}")
-        print(f"Resolution: {info['resolution']}")
+        print(info)
 
-#if __name__ == "__main__":
+# if __name__ == "__main__":
 #    runConversionWithDialog()
