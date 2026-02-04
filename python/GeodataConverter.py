@@ -42,12 +42,13 @@ def loadHeightInfoFromText(pngPath):
     }
 
 def convertGeodataUE():
-    global minHeight, maxHeight, resolution, heightmap # Variables to store results
+    global minHeight, maxHeight, resolution, heightmap, heightmapPath # Variables to store results into UE
     minHeight = None
     maxHeight = None
     resolution = None
     heightmap = None
     texture = None
+    heightmapPath = ""
 
     # Hide root Tk window
     root = Tk()
@@ -106,11 +107,12 @@ def convertGeodataUE():
             unreal.log_error("Failed to import heightmap texture into Unreal.")
             return {}
 
-    # Assign results to global variables
+    # Assign results to global variables for Unreal
     minHeight = float(info['minHeight'])
     maxHeight = float(info['maxHeight'])
     resolution = info['resolution']
     heightmap = texture
+    heightmapPath = outputPath
 
     # Log results in Unreal
     unreal.log(f"Heightmap imported: {texture.get_name()}")
