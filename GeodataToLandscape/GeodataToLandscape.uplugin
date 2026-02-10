@@ -1,0 +1,26 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "Geodata To Landscape",
+	"Description": "Converts GeoTIFF to heightmap PNGs and imports it into Unreal project. Ready for use as landscape base.",
+	"Category": "Editor",
+	"CreatedBy": "Fabian Hagerström",
+	"CreatedByURL": "",
+	"DocsURL": "https://github.com/fhagerstrom/ue-geodata-landscape-plugin",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"EngineVersion": "5.6.0",
+	"CanContainContent": true,
+	"Installed": true,
+	"Plugins": [
+		{
+			"Name": "PythonScriptPlugin",
+			"Enabled": true
+		},
+		{
+			"Name": "EditorScriptingUtilities",
+			"Enabled": true
+		}
+	]
+}
