@@ -139,7 +139,16 @@ Recommended X/Y/Z scale values.
 
 ## 6. Troubleshooting
 
-### 6.1 "ModuleNotFoundError: No module named 'geodataConverter'"
+### 6.1 Plugin Not Showing In Plugins Window
+**Possible Cause:**
+Unreal Engine is running while plugin was copied to the project.
+
+**Solution:**
+1. Ensure that the plugin is in `Plugins` folder.
+2. Restart Unreal Engine.
+3. Plugin should now show up in Plugins window, under `Project --> Editor` in the list to the left.
+
+### 6.2 "ModuleNotFoundError: No module named 'geodataConverter'"
 **Cause:**
 The Python folder (including `Lib` and `site-packages`) was not included when plugin was imported.
 
@@ -150,7 +159,7 @@ Ensure that:
 
 Restart Unreal Engine after correcting.
 
-### 6.2 "ModuleNotFoundError: No module named 'numpy' or 'PIL'" or Other Module Related Errors
+### 6.3 "ModuleNotFoundError: No module named 'numpy' or 'PIL'" or Other Module Related Errors
 **Cause:**
 Unreal Engine cannot find the required Python packages.
 
@@ -167,7 +176,7 @@ This may happen if:
 4. Install NumPy and Pillow: `python -m pip install numpy pillow`
 5. Restart Unreal Engine.
 
-### 6.3 Heightmap Imports but Landscape Looks Incorrect
+### 6.4 Heightmap Imports but Landscape Looks Incorrect
 **Possible Causes:**
 - Incorrect Overall Resolution entered in the widget.
 - Heightmap is not square.
