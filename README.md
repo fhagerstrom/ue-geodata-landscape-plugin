@@ -99,12 +99,13 @@ String
 Displays path to generated `PNG` file.
 
 #### Recommended Overall Resolution
-FLoat
+Float
 User-Input value from Landscape Mode.
 
 #### Calculated Landscape Scale
 Vector3
-Recommended X/Y/Z scale values. 
+
+Recommended X/Y/Z scale values.
 - X/Y scale is based on heightmap's resolution and suggested overall resolution from Landscape Mode.
 - Z scale is based on heightspan of heightmap.
 
@@ -131,7 +132,7 @@ Restart Unreal Engine after correcting.
 
 **Solution:**
 1. Re-import the PNG in Landscape Mode.
-2. Use the recommended Overall Resolution shownn by Unreal.
+2. Use the recommended Overall Resolution shown by Unreal.
 3. Enter that value into the widget.
-4. Apply the calculated scale values _exactly_ as displayed.
+4. Apply the calculated scale values _exactly_ as displayed (Use copy-paste).
 
