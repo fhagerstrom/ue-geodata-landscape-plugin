@@ -74,7 +74,7 @@ The conversion interface will appear as a dockable window.
 The plugin will:
 - Convert the GeoTIFF into a grayscale heightmap PNG
 - Save the PNG locally on your machine
-- Import the PNG into Unreal Engine (Should be located in `/Game/Heightmaps`)
+- Import the PNG into Unreal Engine (Should be located in `/Content/Heightmaps`)
 - Display:
     - Minimum height
     - Maximum height
