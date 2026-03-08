@@ -42,7 +42,8 @@ def loadHeightInfoFromText(pngPath):
     }
 
 def convertGeodataUE():
-    global minHeight, maxHeight, resolution, heightmap, heightmapPath # Variables to store results into UE
+    # Store results in global variables to be accessed from Unreal after conversion
+    global minHeight, maxHeight, resolution, heightmap, heightmapPath
     minHeight = None
     maxHeight = None
     resolution = None
@@ -75,7 +76,7 @@ def convertGeodataUE():
     info = geoDataToHeightmap(inputPath, outputPath)
 
     # Save min/max height info to a text file
-    info_path = os.path.splitext(outputPath)[0] + "_heightinfo.txt"
+    info_path = os.path.splitext(outputPath)[0] + "_minmax_info.txt"
 
     with open(info_path, "w") as f:
         f.write(f"minHeight={info['minHeight']}\n")
@@ -99,9 +100,9 @@ def convertGeodataUE():
             texture = unreal.load_asset(task.imported_object_paths[0])
         else:
             # Asset already exists, load it directly
-            asset_name = os.path.splitext(os.path.basename(outputPath))[0]
-            asset_path = f"{destinationPath}/{asset_name}"
-            texture = unreal.load_asset(asset_path)
+            assetName = os.path.splitext(os.path.basename(outputPath))[0]
+            assetPath = f"{destinationPath}/{assetName}"
+            texture = unreal.load_asset(assetPath)
         
         if not texture:
             unreal.log_error("Failed to import heightmap texture into Unreal.")
