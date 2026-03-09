@@ -4,7 +4,7 @@
 This plugin converts elevation data (`TIFF / TIF` files only) into grayscale `PNG`'s and imports them into Unreal Engine for use as Landscape heightmaps. It also calculates the recommended Landscape scale based on the imported heightmap.
 
 - **Plugin Name:** Geodata To Landscape
-- **Current Version:** 1.0.0
+- **Current Version:** 1.0.1
 - **Supported Unreal Engine Version:** 5.6.1+
 - **Platforms:** Windows
 - **Intended Audience:** Environmental Artists, Technical Artists
